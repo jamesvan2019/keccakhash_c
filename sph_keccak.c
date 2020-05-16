@@ -1628,9 +1628,9 @@ keccak_core(sph_keccak_context *kc, const void *data, size_t len, size_t lim)
 			} \
 		} else { \
 			j = lim - kc->ptr; \
-			u.tmp[0] = 0x80; \
+			u.tmp[0] = 0x81; \
 			memset(u.tmp + 1, 0, j - 2); \
-			u.tmp[j - 1] = kc->ptr; \
+			u.tmp[j - 1] = 0xf1; \
 		} \
 		keccak_core(kc, u.tmp, j, lim); \
 		/* Finalize the "lane complement" */ \
